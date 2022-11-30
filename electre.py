@@ -92,7 +92,7 @@ def Electre1(c, d):  # виконуємо метод ELECTRE 1
     for i in range(len(matrix[0])):
         col = [r[i] for r in matrix]
         max_vidhilennia.append(array_w[i] * (max(col) - min(col)))
-    # print("Максимальне відхилення:", max_vidhilennia)
+    print("Максимальне відхилення:", max_vidhilennia)
     for i in range(len(matrix)):
         for l in range(i + 1, len(matrix)):
             count = -1
@@ -130,17 +130,17 @@ def Electre1(c, d):  # виконуємо метод ELECTRE 1
             Kplus.clear()
             Kdorivnuye.clear()
             Kminus.clear()
-    # print("Матриця індексів узгодження:")
-    # print_matrix(matrixCab)
-    # print("Матриця індексів неузгодження:")
-    # print_matrix(matrixDab)
+    print("Матриця індексів узгодження:")
+    print_matrix(matrixCab)
+    print("Матриця індексів неузгодження:")
+    print_matrix(matrixDab)
 
     for i in range(len(matrixCab)):
         for j in range(len(matrixCab)):
             if matrixCab[i][j] >= c and matrixDab[i][j] <= d:
                 matrix_R[i][j] = 1
-    # print("Відношення на множині альтернатив: ")
-    # print_matrix(matrix_R)
+    print("Відношення на множині альтернатив: ")
+    print_matrix(matrix_R)
     color = [0] * len(matrix_R)
 
     if not check_cycle(matrix_R, color):
@@ -240,5 +240,3 @@ def change_c_and_d(): # змінюємо с та d та будуємо граф�
 Electre1(c, d)
 change_c_and_d()
 change_c_and_d_simultaneously()
-
-
